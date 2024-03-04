@@ -24,10 +24,10 @@ class UrlController extends Controller
 
         return view('get')->with(["url" => config('app.url') .'/short-url/'. $token]);
     }
-    
+
     public function redirect(Request $request , $token ){
         $url = Url::where('token','=',$token)->first();
         return redirect()->away($url->url);
     }
-    
+
 }
