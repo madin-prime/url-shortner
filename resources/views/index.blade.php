@@ -9,9 +9,11 @@
 
 <div class="container">
 
-<form action="shortener" method="post">
+<form action="{{ route('shortener') }}" method="post">
     @csrf
-    <input type="text" name="url" class="url" placeholder="Enter the link here">
+    <label>
+        <input type="text" name="url" class="url" placeholder="Enter the link here">
+    </label>
     <button type="submit">Shorten URL</button>
 </form>
 
