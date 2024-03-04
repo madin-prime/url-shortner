@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UrlController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/shortener-error', function () {
+    return view('error');
+})->name('error');
+
+Route::get('/get-short-link', function () {
+    return view('get');
+})->name('get');
+
+Route::post('/shortener', [UrlController::class, 'store'])->name('shortener');
+
+Route::get('/short-url/{token}', [UrlController::class,'redirect'])->name('url');
